@@ -2,7 +2,7 @@
 <project>
 	<!-- _________________________ Application Settings _________________________ -->
 
-	<app title="Pibby: Apocalypse" file="Pibby Apocalypse" packageName="com.dayybloom.pibby" package="com.dayybloom.pibby" main="Main" version="0.2.8" company="DayyBloom" />
+	<app title="Pibby Apocalypse" file="PibbyApocalypse" packageName="com.dayybloom.pibby" package="com.dayybloom.pibby" main="Main" version="0.2.8" company="DayyBloom" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
@@ -106,14 +106,14 @@
 	<haxedev set='webgl' />
 
 	<!--In case you want to use the addons package-->
-	<haxelib name="flixel-addons" version="3.0.2" /> <!--this version could be wrong but it works-->
+	<haxelib name="flixel-addons" /> <!--this version could be wrong but it works-->
 	<haxelib name="hscript" />
 	<define name="hscriptPos" />
 
 	<!--In case you want to use the ui package-->
 	<haxelib name="flixel-ui" />
 	<haxelib name="linc_luajit" if="LUA_ALLOWED"/>
-	<haxelib name="hxCodec" version="2.6.1" if="VIDEOS_ALLOWED" /> <!--this version could be wrong but it works-->
+	<haxelib name="hxvlc" if="VIDEOS_ALLOWED" /> <!--this version could be wrong but it works-->
 	<haxelib name="extension-androidtools" if="android"/>
 	<haxelib name="faxe" if='switch'/>
 	<!--<haxelib name="polymod"/> -->
@@ -169,11 +169,22 @@
 	<haxedef name="HXCPP_CHECK_POINTER"/>
 	<haxedef name="HXCPP_STACK_LINE"/>
 
-        <config:android gradle-version="7.5.1" />
-        <config:android gradle-plugin="7.3.1" />
+      <!-- Do whatever you want I'm tired uninstall and install everytime -->
+	<certificate path="key.keystore" password="psychengine" alias="psychport" alias-password="psychengine" if="android" unless="debug" />
 
-	<android permission="android.permission.CAPTURE_AUDIO_OUTPUT"/>
-	<android target-sdk-version="29" if="android"/>
+	<!-- Category Type for Apple Systems -->
+	<config:ios category_type="public.app-category.music-games" />
+	<config:mac category_type="public.app-category.music-games" />
+
+	<!--Avoid memory leaks with for loops in HScript-->
+	<haxedef name="loop_unroll_max_cost" value="25" />
+	<haxedef name="DISABLED_MACRO_SUPERLATIVE" if="android" />
+
+	<!--Macro fixes-->
+	<haxeflag name="--macro" value="allowPackage('flash')" />
+	<haxeflag name="--macro" value="include('my.pack')" />
+
+	<haxedef name="SHARE_MOBILE_FILES" if="mobile" />
 
 	
 	<!-- _________________________________ Custom _______________________________ -->
