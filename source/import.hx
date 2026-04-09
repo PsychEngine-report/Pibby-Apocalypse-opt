@@ -4,5 +4,5 @@ import Highscore;
 #end
 
 #if ios
-import StorageUtil as FileSystem
+import StorageUtil
 #end
