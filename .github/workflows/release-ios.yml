@@ -26,7 +26,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib git hxcpp https://github.com/kittycathy233/hxcpp --quiet
-          haxelib git lime https://github.com/Ethantobot11/lime2 --quiet
+          https://github.com/Ethantobot11/lime-for-PA-OLD-PORT --quiet
           haxelib install openfl 9.2.2 --quiet
           haxelib --never install flixel 5.2.2 --quiet
           haxelib install flixel-tools --quiet
@@ -42,7 +42,6 @@ jobs:
       #  haxelib run lime rebuild extension-iostools ios -arm64 -final
 
       - name: Clearing already existing cache
-        if: inputs.name == 'iOS'
         uses: actions/github-script@v6
         with:
           script: |
