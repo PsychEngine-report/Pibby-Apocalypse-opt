@@ -412,7 +412,7 @@ class Controls extends FlxActionSet
 
 		public function setVirtualPadUI(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
 		{
-			switch (cast(DPad, Int))
+			switch (DPad)
 			{
 			    case UP_DOWN:
 				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
@@ -456,7 +456,7 @@ class Controls extends FlxActionSet
 
 		public function setVirtualPadNOTES(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
 		{
-			switch (cast(DPad, Int))
+			switch (DPad)
 			{
 				case UP_DOWN:
 				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
