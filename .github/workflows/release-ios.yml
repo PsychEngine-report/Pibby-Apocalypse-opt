@@ -26,7 +26,7 @@ jobs:
         run: |
           haxelib setup ~/haxelib
           haxelib git hxcpp https://github.com/kittycathy233/hxcpp --quiet
-          https://github.com/Ethantobot11/lime-for-PA-OLD-PORT --quiet
+          haxelib git lime https://github.com/Ethantobot11/lime-for-PA-OLD-PORT --quiet
           haxelib install openfl 9.2.2 --quiet
           haxelib --never install flixel 5.2.2 --quiet
           haxelib install flixel-tools --quiet
