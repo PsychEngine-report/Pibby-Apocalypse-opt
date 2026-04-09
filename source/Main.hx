@@ -25,9 +25,9 @@ import haxe.CallStack;
 import haxe.io.Path;
 //import Discord.DiscordClient;
 import sys.FileSystem;
+#end
 import sys.io.File;
 import sys.io.Process;
-#end
 import openfl.system.System;
 import openfl.utils.AssetCache;
 import openfl.Assets;
@@ -70,10 +70,15 @@ class Main extends Sprite
 	{
 		super();
 
-    #if mobile
+    #if ios
+		Sys.setCwd(StorageUtil.getStorageDirectory());
 		Generic.initCrashHandler();
 		Generic.mode = ROOTDATA;
-		#end
+	#elseif android
+		Generic.initCrashHandler();
+		Generic.mode = ROOTDATA;
+	#end
+		hxvlc.util.Handle.init(#if (hxvlc >= "1.8.0")  ['--no-lua'] #end);
 
 		if (stage != null)
 		{
