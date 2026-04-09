@@ -24,9 +24,10 @@ import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
 //import Discord.DiscordClient;
-import sys.FileSystem;
+
 #end
 import sys.io.File;
+import sys.FileSystem;
 import sys.io.Process;
 import openfl.system.System;
 import openfl.utils.AssetCache;
