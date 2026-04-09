@@ -253,7 +253,7 @@ class PACreditsState extends MusicBeatState
 			FlxG.sound.music.volume += 0.5 * FlxG.elapsed;
 		}
 
-			if (controls.BACK #if mobile || FlxG.android.justReleased.BACK #end)
+			if (controls.BACK #if android || FlxG.android.justReleased.BACK #end)
 			{
 				FlxG.sound.play(Paths.sound('cancelMenu'));
 				MusicBeatState.switchState(new MainMenuState());
