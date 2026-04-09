@@ -412,7 +412,7 @@ class Controls extends FlxActionSet
 
 		public function setVirtualPadUI(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
 		{
-			switch (DPad)
+			switch (cast(DPad, Int))
 			{
 			    case UP_DOWN:
 				inline forEachBound(Control.UI_UP, (action, state) -> addButtonUI(action, VirtualPad.buttonUp, state));
@@ -456,7 +456,7 @@ class Controls extends FlxActionSet
 
 		public function setVirtualPadNOTES(VirtualPad:FlxVirtualPad, DPad:FlxDPadMode, Action:FlxActionMode)
 		{
-			switch (DPad)
+			switch (cast(DPad, Int))
 			{
 				case UP_DOWN:
 				inline forEachBound(Control.NOTE_UP, (action, state) -> addButtonNOTES(action, VirtualPad.buttonUp, state));
@@ -715,7 +715,7 @@ class Controls extends FlxActionSet
 	 * Sets all actions that pertain to the binder to trigger when the supplied keys are used.
 	 * If binder is a literal you can inline this
 	 */
-	#if !android
+	#if (!android && !ios)
 	public function bindKeys(control:Control, keys:Array<FlxKey>)
 	{
 		var copyKeys:Array<FlxKey> = keys.copy();
