@@ -39,6 +39,7 @@ jobs:
           haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git --quiet
           haxelib install hxcpp-debug-server --quiet
           haxelib install format --quiet
+          haxelib install hxp --quiet
           haxelib list
       #  haxelib run lime rebuild extension-iostools ios -arm64 -final
 
