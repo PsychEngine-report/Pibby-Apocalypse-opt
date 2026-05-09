@@ -22,7 +22,6 @@ import hxvlc.flixel.FlxVideoSprite;
 
 class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
-	public var bitmap(get, never):hxvlc.externs.Types.LibVLCVideoView; 
 	public var bitmap(get, never):Dynamic;
 
 	private function get_bitmap() 
