@@ -32,6 +32,10 @@ class VideoSprite extends FlxSpriteGroup {
         #end
     }
 	public var finishCallback:Dynamic = null;
+	@:isVar override public var originCallback(get, set):Dynamic;
+
+	function get_originCallback() return this.originCallback;
+	function set_originCallback(value:Dynamic) return this.originCallback = value;
 	public var onSkip:Void->Void = null;
 	@:noCompletion public var customOriginCallback:Dynamic = null;
 
@@ -46,7 +50,7 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra:Dynamic, ?extra2:Dynamic) {
+	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra1:Dynamic, ?extra2:Dynamic, ?extra3:Dynamic) {
         super();
 
         this.videoName = videoName;
