@@ -24,14 +24,7 @@ import hxvlc.flixel.FlxVideoSprite;
 class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
 	public var bitmap(get, never):Dynamic;
-
-	private function get_bitmap() 
-	{
-    	#if hxvlc
-    	if (videoSprite != null) return videoSprite.bitmap;
-    	#end
-    	return null;
-	}
+	private function get_bitmap() return videoSprite.bitmap;
 	public function load(name:String, ?options:Dynamic) {
     #if hxvlc
     var path:String = StorageUtil.getStorageDirectory() + 'assets/videos/' + videoName + '.mp4';
@@ -39,6 +32,7 @@ class VideoSprite extends FlxSpriteGroup {
     #end
 	}
 	public var finishCallback:Dynamic = null;
+	public var originCallback:Dynamic = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
@@ -52,7 +46,7 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extraArg1:Dynamic, ?extraArg2:Dynamic) {
+	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra:Dynamic) {
         super();
 
         this.videoName = videoName;
