@@ -1,5 +1,7 @@
 name: Release IOS
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  workflow_call:
 jobs:
   iOS:
      runs-on: macos-14

@@ -1,0 +1,51 @@
+name: Mobile + Release
+on: workflow_dispatch
+
+permissions: write-all
+
+env:
+  PROJECT_NAME: PibbyEngine
+
+jobs:
+  get-commit-hash:
+    runs-on: ubuntu-latest
+    outputs:
+      commit_hash: ${{ steps.get_commit_hash.outputs.COMMIT_HASH }}
+    steps:
+      - name: Get latest commit hash
+        id: get_commit_hash
+        run: |
+          hash=${GITHUB_SHA::7}
+          echo "COMMIT_HASH=$hash" >> $GITHUB_OUTPUT
+
+  build-android:
+    needs: get-commit-hash
+    uses: ./.github/workflows/android.yml
+
+  build-ios:
+    needs: get-commit-hash
+    uses: ./.github/workflows/ios.yml
+
+  Releaser:
+    needs: [get-commit-hash, build-android, build-ios]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./downloads
+
+      - name: Organize and Rename
+        run: |
+          mkdir -p release_files
+          find ./downloads -name "*.apk" -exec cp {} ./release_files/${{ env.PROJECT_NAME }}-Android.apk \;
+          find ./downloads -name "*.ipa" -exec cp {} ./release_files/${{ env.PROJECT_NAME }}-iOS.ipa \;
+
+      - name: Publish
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{secrets.GITHUB_TOKEN}}
+          prerelease: false
+          automatic_release_tag: 'v1.0.2'
+          title: ' Mobile Port v1.0.2'
+          files: ./release_files/*

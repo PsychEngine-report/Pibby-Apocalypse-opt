@@ -1,5 +1,7 @@
 name: Release
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+  workflow_call:
 jobs:
   Android:
     runs-on: ubuntu-latest
@@ -40,7 +42,7 @@ jobs:
           haxelib install tjson
           haxelib install hxjsonast
           haxelib install hscript
-          haxelib install hxCodec 2.6.1
+          haxelib install hxvlc 1.9.0
           haxelib git extension-androidtools https://github.com/Default-name123/oldtools
           haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
           haxelib install hxcpp-debug-server
@@ -58,7 +60,7 @@ jobs:
           haxelib set lime 8.0.1
           haxelib set openfl 9.2.1
           haxelib set flixel 5.2.2
-          haxelib set hxCodec 2.6.1
+          haxelib set hxvlc 1.9.0
           haxelib set flixel-addons 2.11.0
           haxelib set hxcpp 4.2.1
         env:
@@ -71,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
-          path: export/release/android/bin/app/build/outputs/apk/debug
+          path: export/release/android/bin/app/build/outputs/apk/release
           if-no-files-found: warn
   Publish:
     needs: Android
@@ -89,7 +91,7 @@ jobs:
         with:
           repo_token: ${{secrets.GITHUB_TOKEN}}
           prerelease: false
-          automatic_release_tag: 'v1.0.1'
-          title: ' Android Port v1.0.1'
-          files: ${{github.workspace}}/Pibby Apocalypse-debug.apk
+          automatic_release_tag: 'v1.0.2'
+          title: ' Mobile Port v1.0.2'
+          files: ${{github.workspace}}/Pibby Apocalypse.apk
           

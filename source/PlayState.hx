@@ -1276,6 +1276,10 @@ class PlayState extends MusicBeatState
 			chromFNF.setFloat('amount', -0.5);
 		}
 
+		#if mobile
+		addVirtualPad(NONE, X);
+		#end
+
 		super.create();
 		//garbage collection :trol:
 		System.gc();
@@ -2822,7 +2826,7 @@ class PlayState extends MusicBeatState
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
 
-		if (controls.PAUSE #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
+		if (controls.PAUSE #if mobile || virtualPad.buttonX.justPressed #end && startedCountdown && canPause)
 		{
             for (hScript in allScripts) {
 			    hScript.onPause();
