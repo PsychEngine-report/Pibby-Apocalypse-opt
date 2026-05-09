@@ -24,6 +24,10 @@ class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
 	public var bitmap(get, never):hxvlc.externs.Types.LibVLCVideoView; 
 	private function get_bitmap() return videoSprite.bitmap;
+	public function load(name:String, ?library:String) {
+    // hxvlc uses different loading logic; adjust path as needed
+    videoSprite.load(SUtil.getPath() + 'assets/videos/' + name + '.mp4');
+	}
 	public dynamic var finishCallback:Void->Void = null;
 	public var onSkip:Void->Void = null;
 
