@@ -34,13 +34,11 @@ class VideoSprite extends FlxSpriteGroup {
 	}
 	public function load(name:String, ?options:Dynamic) {
     #if hxvlc
-    // Use StorageUtil but ensure the class is imported at the top of VideoSprite.hx
-    var path:String = StorageUtil.getPath() + 'assets/videos/' + name + '.mp4';
-    
+    var path:String = StorageUtil.getStorageDirectory() + 'assets/videos/' + videoName + '.mp4';
     videoSprite.load(path, options);
     #end
 	}
-	public var finishCallback(default, default):Void->Void = null;
+	public var finishCallback:()->Void = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
@@ -54,7 +52,7 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra:Dynamic) {
+	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra1:Dynamic, ?extra2:Dynamic) {
         super();
 
         this.videoName = videoName;
