@@ -1132,10 +1132,19 @@ class PlayState extends MusicBeatState
         if(SONG.song.toLowerCase() == 'mindless')finnT.cameras = [camHUD];
 		channelTxt.cameras = [camOther];
 
-   #if mobile
-   addMobileControls(false);
-   mobileControls.visible = false;
-   #end
+  		#if mobile
+		addVirtualPad(NONE, X); 
+		addVirtualPadCamera(false); 
+		if (virtualPad != null) {
+    		virtualPad.scrollFactor.set(0, 0);
+    	if (virtualPad.buttonX != null) {
+        	virtualPad.buttonX.x = FlxG.width - virtualPad.buttonX.width - 20;
+        	virtualPad.buttonX.y = 20;
+    	}
+		}
+		addMobileControls(false);
+		mobileControls.visible = false; 
+		#end
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1275,10 +1284,6 @@ class PlayState extends MusicBeatState
 		if(ClientPrefs.shaders) {
 			chromFNF.setFloat('amount', -0.5);
 		}
-
-		#if mobile
-		addVirtualPad(NONE, X);
-		#end
 
 		super.create();
 		//garbage collection :trol:
