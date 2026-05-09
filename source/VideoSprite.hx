@@ -24,12 +24,13 @@ class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
 	public var bitmap(get, never):hxvlc.externs.Types.LibVLCVideoView; 
 	public var bitmap(get, never):Dynamic;
-	private function get_bitmap() {
+
+	private function get_bitmap() 
+	{
     	#if hxvlc
-    	return videoSprite.bitmap;
-    	#else
-    	return null;
+    	if (videoSprite != null) return videoSprite.bitmap;
     	#end
+    	return null;
 	}
 	public function load(name:String, ?library:String) {
     // hxvlc uses different loading logic; adjust path as needed
