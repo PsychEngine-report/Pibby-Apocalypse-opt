@@ -574,7 +574,7 @@ class PlayState extends MusicBeatState
 		}
 
 		// video precachinggggggg
-		Paths.video('Cheating_is_a_sin', false, true, false);
+		Paths.video('Cheating_is_a_sin');
 
     #if desktop
 		// String that contains the mode defined here so it isn't necessary to call changePresence for each mode
@@ -1303,7 +1303,7 @@ class PlayState extends MusicBeatState
 				case 'Forgotten World':
 					addCharacterToList('darwinfw', 0);
 					#if VIDEOS_ALLOWED
-					midSongVideo.bitmap.playVideo(Paths.video('forgottenscene', false, true, false));
+					midSongVideo.bitmap.playVideo(Paths.video('forgottenscene'));
 					midSongVideo.bitmap.finishCallback = null;
 					midSongVideo.bitmap.stop();
 					midSongVideo.cameras = [camHUD];
@@ -1719,7 +1719,7 @@ class PlayState extends MusicBeatState
     cheatingVideo.y -= 170;
 
     // FIX: Changed openingCallback to originCallback
-    Reflect.setField(cheatingVideo, "originCallback", () -> {
+    Reflect.setField(cheatingVideo, "originCallback", function() {
     persistentUpdate = false;
     camOther.fade(0x000000, 3, true);
 	});
