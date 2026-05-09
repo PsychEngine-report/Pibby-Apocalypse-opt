@@ -38,7 +38,7 @@ class VideoSprite extends FlxSpriteGroup {
     videoSprite.load(path, options);
     #end
 	}
-	public var finishCallback:()->Void = null;
+	public var finishCallback:Dynamic = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
@@ -52,7 +52,7 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra1:Dynamic, ?extra2:Dynamic) {
+	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extraArg1:Dynamic, ?extraArg2:Dynamic) {
         super();
 
         this.videoName = videoName;
@@ -96,7 +96,7 @@ class VideoSprite extends FlxSpriteGroup {
         });
 
         // FIX: Use loadLocation or loadStorage instead of .load
-        var path:String = SUtil.getPath() + 'assets/videos/' + videoName + '.mp4'; // Standard pathing
+        var path:String = StorageUtil.getStorageDirectory() + 'assets/videos/' + videoName + '.mp4'; // Standard pathing
         videoSprite.load(path, shouldLoop ? ['input-repeat=65545'] : null);
         #end
         
