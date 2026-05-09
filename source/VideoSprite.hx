@@ -22,7 +22,9 @@ import hxvlc.flixel.FlxVideoSprite;
 
 class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
-	public var finishCallback:Void->Void = null;
+	public var bitmap(get, never):hxvlc.externs.Types.LibVLCVideoView; 
+	private function get_bitmap() return videoSprite.bitmap;
+	public dynamic var finishCallback:Void->Void = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
