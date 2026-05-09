@@ -20,6 +20,7 @@ jobs:
           path: |
             .haxelib/
             export/release/ios/PibbyApocalypse/haxe/
+            export/release/ios/PibbyApocalypse/obj/
           restore-keys: |
             cache-build-ios
       - name: Install Libraries
@@ -108,5 +109,6 @@ jobs:
           path: |
             .haxelib/
             export/release/ios/PibbyApocalypse/haxe/
+            export/release/ios/PibbyApocalypse/obj/
           restore-keys: |
             cache-build-ios
