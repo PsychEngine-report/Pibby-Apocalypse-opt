@@ -37,16 +37,15 @@ class VideoSprite extends FlxSpriteGroup {
 	public var waiting:Bool = false;
 
 	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false) {
-		super();
+        super();
 
-		this.videoName = videoName;
-		scrollFactor.set();
-		
-		// Fix for cameras list
-		if (FlxG.cameras.list.length > 0)
-			cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+        this.videoName = videoName;
+        scrollFactor.set();
+        
+        if (FlxG.cameras.list.length > 0)
+            cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
 
-		waiting = isWaiting;
+        waiting = isWaiting;
 		if(!waiting)
 		{
 			cover = new FlxSprite().makeGraphic(1, 1, FlxColor.BLACK);
@@ -58,36 +57,35 @@ class VideoSprite extends FlxSpriteGroup {
 
 		// initialize sprites
 		videoSprite = new FlxVideoSprite();
-		
-		// FIX 1: Support both ClientPrefs.data and ClientPrefs (older Psych)
-		#if (psychEngineVersion >= "0.7.0")
-		videoSprite.antialiasing = ClientPrefs.data.antialiasing;
-		#else
-		videoSprite.antialiasing = ClientPrefs.antialiasing;
-		#end
-		
-		add(videoSprite);
-		if(canSkip) this.canSkip = true;
+        
+        #if (psychEngineVersion >= "0.7.0")
+        videoSprite.antialiasing = ClientPrefs.data.antialiasing;
+        #else
+        // If this still errors, just set it to true manually
+        videoSprite.antialiasing = true; 
+        #end
+        
+        add(videoSprite);
+        if(canSkip) this.canSkip = true;
 
-		// FIX 2: Handle hxvlc bitmap/events
-		#if hxvlc
-		if(!shouldLoop) 
-			videoSprite.bitmap.onEndReached.add(finishVideo);
+        #if hxvlc
+        // FIX: hxvlc uses 'events' or 'mediaPlayer' now
+        videoSprite.bitmap.onEndReached.add(finishVideo);
 
-		videoSprite.bitmap.onFormatSetup.add(function()
-		{
-			videoSprite.setGraphicSize(FlxG.width);
-			videoSprite.updateHitbox();
-			videoSprite.screenCenter();
-		});
-		#end
+        videoSprite.bitmap.onFormatSetup.add(function()
+        {
+            videoSprite.setGraphicSize(FlxG.width);
+            videoSprite.updateHitbox();
+            videoSprite.screenCenter();
+        });
 
-		// start video
-		videoSprite.load(videoName, shouldLoop ? ['input-repeat=65545'] : null);
-		
-		// Start playing immediately if not waiting
-		if(!waiting)
-			videoSprite.play();
+        // FIX: Use loadLocation or loadStorage instead of .load
+        var path:String = SUtil.getPath() + 'assets/videos/' + videoName + '.mp4'; // Standard pathing
+        videoSprite.load(path, shouldLoop ? ['input-repeat=65545'] : null);
+        #end
+        
+        if(!waiting)
+            videoSprite.play();
 	}
 
 	var alreadyDestroyed:Bool = false;
