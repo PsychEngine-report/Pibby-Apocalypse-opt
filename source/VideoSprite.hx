@@ -15,6 +15,7 @@ import flixel.group.FlxSpriteGroup;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.addons.display.FlxPieDial;
 import Controls;
+import StorageUtil;
 
 #if hxvlc
 import hxvlc.flixel.FlxVideoSprite;
@@ -31,9 +32,13 @@ class VideoSprite extends FlxSpriteGroup {
     	#end
     	return null;
 	}
-	public function load(name:String, ?library:String) {
-    // hxvlc uses different loading logic; adjust path as needed
-    videoSprite.load(SUtil.getPath() + 'assets/videos/' + name + '.mp4');
+	public function load(name:String, ?options:Dynamic) {
+    #if hxvlc
+    // Use StorageUtil but ensure the class is imported at the top of VideoSprite.hx
+    var path:String = StorageUtil.getPath() + 'assets/videos/' + name + '.mp4';
+    
+    videoSprite.load(path, options);
+    #end
 	}
 	public var finishCallback(default, default):Void->Void = null;
 	public var onSkip:Void->Void = null;
@@ -49,7 +54,7 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false) {
+	public function new(videoName:String, isWaiting:Bool, canSkip:Bool = false, shouldLoop:Dynamic = false, ?extra:Dynamic) {
         super();
 
         this.videoName = videoName;
