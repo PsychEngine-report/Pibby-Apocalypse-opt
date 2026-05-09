@@ -1719,10 +1719,10 @@ class PlayState extends MusicBeatState
     cheatingVideo.y -= 170;
 
     // FIX: Changed openingCallback to originCallback
-    cheatingVideo.originCallback = () -> {
-        persistentUpdate = false;
-        camOther.fade(0x000000, 3, true);
-    }
+    Reflect.setField(cheatingVideo, "originCallback", () -> {
+    persistentUpdate = false;
+    camOther.fade(0x000000, 3, true);
+	});
 
     cheatingVideo.finishCallback = function()
     {
