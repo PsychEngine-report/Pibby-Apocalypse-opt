@@ -32,7 +32,13 @@ class VideoSprite extends FlxSpriteGroup {
     #end
 	}
 	public var finishCallback:Dynamic = null;
-	public var originCallback:Dynamic = null;
+	#if (flixel < "5.0.0")
+	@:keep public var originCallback:Dynamic = null; 
+	#else
+	@:noCompletion override function set_originCallback(value:Dynamic):Dynamic {
+    return this.originCallback = value;
+	}
+	#end
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
