@@ -2297,7 +2297,7 @@ class PlayState extends MusicBeatState
 		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song)));
 
 		#if VIDEOS_ALLOWED
-		midSongVideo = new VideoSprite();
+		midSongVideo = new VideoSprite('', true, false, false);
 		add(midSongVideo);
 		#end
 
@@ -2305,7 +2305,7 @@ class PlayState extends MusicBeatState
 		add(notes);
 
 		#if VIDEOS_ALLOWED
-		cheatingVideo = new VideoSprite();
+		cheatingVideo = new VideoSprite('', true, false, false);
 		add(cheatingVideo);
 		#end
 
