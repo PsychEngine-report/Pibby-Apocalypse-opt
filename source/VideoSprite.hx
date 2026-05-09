@@ -23,7 +23,14 @@ import hxvlc.flixel.FlxVideoSprite;
 class VideoSprite extends FlxSpriteGroup {
 	#if VIDEOS_ALLOWED
 	public var bitmap(get, never):hxvlc.externs.Types.LibVLCVideoView; 
-	private function get_bitmap() return videoSprite.bitmap;
+	public var bitmap(get, never):Dynamic;
+	private function get_bitmap() {
+    	#if hxvlc
+    	return videoSprite.bitmap;
+    	#else
+    	return null;
+    	#end
+	}
 	public function load(name:String, ?library:String) {
     // hxvlc uses different loading logic; adjust path as needed
     videoSprite.load(SUtil.getPath() + 'assets/videos/' + name + '.mp4');
@@ -65,7 +72,7 @@ class VideoSprite extends FlxSpriteGroup {
 		videoSprite = new FlxVideoSprite();
         
         #if (psychEngineVersion >= "0.7.0")
-        videoSprite.antialiasing = ClientPrefs.data.antialiasing;
+        videoSprite.antialiasing = ClientPrefs.globalAntialiasing;
         #else
         // If this still errors, just set it to true manually
         videoSprite.antialiasing = true; 
