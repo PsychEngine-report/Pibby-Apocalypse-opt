@@ -15,11 +15,11 @@ jobs:
         with:
           ndk-version: r21e
 
-      - name: Setup Java JDK
-        uses: actions/setup-java@main
+      - name: Set Java JDK
+        uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
-          java-version: 18
+          java-version: '11'
+          distribution: 'temurin'
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@main
