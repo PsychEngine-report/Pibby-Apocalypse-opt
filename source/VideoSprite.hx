@@ -33,7 +33,6 @@ class VideoSprite extends FlxSpriteGroup {
     }
 	public var finishCallback:Dynamic = null;
 	public var onSkip:Void->Void = null;
-	@:noCompletion public var customOriginCallback:Dynamic = null;
 
 	final _timeToSkip:Float = 1;
 	public var holdingTime:Float = 0;
@@ -46,9 +45,8 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ...args:Array<Dynamic>) {
+	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false) {
         super();
-		this.originCallback = null;
         this.videoName = videoName;
         scrollFactor.set();
         
