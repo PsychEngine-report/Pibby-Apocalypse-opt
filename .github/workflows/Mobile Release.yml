@@ -4,7 +4,7 @@ on: workflow_dispatch
 permissions: write-all
 
 env:
-  PROJECT_NAME: PibbyEngine
+  PROJECT_NAME: PibbyApocalypse
 
 jobs:
   get-commit-hash:
