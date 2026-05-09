@@ -35,7 +35,7 @@ class VideoSprite extends FlxSpriteGroup {
     // hxvlc uses different loading logic; adjust path as needed
     videoSprite.load(SUtil.getPath() + 'assets/videos/' + name + '.mp4');
 	}
-	public dynamic var finishCallback:Void->Void = null;
+	public var finishCallback(default, default):Void->Void = null;
 	public var onSkip:Void->Void = null;
 
 	final _timeToSkip:Float = 1;
