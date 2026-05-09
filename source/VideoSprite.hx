@@ -32,7 +32,6 @@ class VideoSprite extends FlxSpriteGroup {
         #end
     }
 	public var finishCallback:Dynamic = null;
-	@:dynamic public var originCallback:Dynamic = null;
 	public var onSkip:Void->Void = null;
 	@:noCompletion public var customOriginCallback:Dynamic = null;
 
