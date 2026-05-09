@@ -31,21 +31,22 @@ jobs:
       - name: Install Haxelib
         run: |
           haxelib setup ~/haxelib
-          haxelib install hxcpp 4.2.1 > /dev/null
-          haxelib install lime 8.0.1
-          haxelib install openfl 9.2.1
-          haxelib --never install flixel 5.2.2
-          haxelib run lime setup flixel
-          haxelib install flixel-tools
-          haxelib install flixel-ui
-          haxelib install flixel-addons 3.0.2
-          haxelib install tjson
-          haxelib install hxjsonast
-          haxelib install hscript
-          haxelib install hxvlc 1.9.0
-          haxelib git extension-androidtools https://github.com/Default-name123/oldtools
-          haxelib git linc_luajit https://github.com/Sirox228/linc_luajit
-          haxelib install hxcpp-debug-server
+          haxelib git hxcpp https://github.com/kittycathy233/hxcpp --quiet
+          haxelib git lime https://github.com/Ethantobot11/lime-for-PA-OLD-PORT --quiet
+          haxelib install openfl 9.2.2 --quiet
+          haxelib --never install flixel 5.2.2 --quiet
+          haxelib install flixel-tools --quiet
+          haxelib install flixel-ui 2.4.0 --quiet
+          haxelib install flixel-addons 2.11.0 --quiet
+          haxelib install tjson --quiet
+          haxelib install hxjsonast --quiet
+          haxelib install hscript --quiet
+          haxelib install hxvlc 1.9.0 --quiet
+          haxelib git linc_luajit https://github.com/superpowers04/linc_luajit.git --quiet
+          haxelib git extension-androidtools https://github.com/Default-name123/oldtools --quiet
+          haxelib install hxcpp-debug-server --quiet
+          haxelib install format --quiet
+          haxelib install hxp --quiet
           haxelib list
       - name: Create Version Tag
         run: echo "${{github.run_id}}" > VERSION
@@ -57,12 +58,13 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT $ANDROID_NDK_HOME
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config ANDROID_SETUP true
-          haxelib set lime 8.0.1
-          haxelib set openfl 9.2.1
-          haxelib set flixel 5.2.2
-          haxelib set hxvlc 1.9.0
-          haxelib set flixel-addons 2.11.0
-          haxelib set hxcpp 4.2.1
+          haxelib set lime git
+          haxelib set openfl 9.2.2 --always
+          haxelib set flixel 5.2.2 --always
+          haxelib set hxvlc 1.9.0 --always
+          haxelib set flixel-ui 2.4.0 --always
+          haxelib set flixel-addons 2.11.0 --always
+          haxelib set hxcpp git
         env:
           ANDROID_NDK_HOME: ${{ steps.setup-ndk.outputs.ndk-path }}
 
