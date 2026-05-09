@@ -46,9 +46,9 @@ class VideoSprite extends FlxSpriteGroup {
 
 	public var waiting:Bool = false;
 
-	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ...args:Array<Dynamic> {
+	public function new(videoName:String = '', isWaiting:Bool = false, canSkip:Bool = false, shouldLoop:Dynamic = false, ...args:Array<Dynamic>) {
         super();
-		Reflect.setField(this, "originCallback", null);
+		this.originCallback = null;
         this.videoName = videoName;
         scrollFactor.set();
         
