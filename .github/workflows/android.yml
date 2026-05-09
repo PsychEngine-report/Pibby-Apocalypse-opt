@@ -75,23 +75,4 @@ jobs:
           name: androidBuild
           path: export/release/android/bin/app/build/outputs/apk/release
           if-no-files-found: warn
-  Publish:
-    needs: Android
-    runs-on: ubuntu-latest
-    permissions: write-all
-    steps:
-      - name: Download
-        uses: actions/download-artifact@main
-        with:
-           name: androidBuild
-           path: ${{github.workspace}}
-
-      - name: Publish
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: ${{secrets.GITHUB_TOKEN}}
-          prerelease: false
-          automatic_release_tag: 'v1.0.2'
-          title: ' Mobile Port v1.0.2'
-          files: ${{github.workspace}}/Pibby Apocalypse.apk
           
