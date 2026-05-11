@@ -47,6 +47,7 @@ class MusicBeatSubstate extends FlxSubState
 			controls.setVirtualPadUI(virtualPad, DPad, Action);
 			trackedInputsVirtualPad = controls.trackedInputsUI;
 			controls.trackedInputsUI = [];
+		   //trackedinputsNOTES = controls.trackedInputsNOTES.copy();
 		}
 
 		public function removeVirtualPad()
@@ -84,8 +85,6 @@ class MusicBeatSubstate extends FlxSubState
 			virtualPad = FlxDestroyUtil.destroy(virtualPad);
 			#end
 		}
-
-	trackedinputsNOTES = controls.trackedInputsNOTES.copy();
 	
 	override function create() {
 		FlxSprite.defaultAntialiasing = ClientPrefs.globalAntialiasing;
