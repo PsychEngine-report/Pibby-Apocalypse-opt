@@ -85,8 +85,7 @@ class MusicBeatState extends FlxUIState
 				case 'Keyboard': // do nothing
 			}
 
-			trackedInputsMobileControls = controls.trackedInputsNOTES;
-			controls.trackedInputsNOTES = [];
+			trackedinputsNOTES = controls.trackedInputsNOTES.copy();
 
 			var camControls:FlxCamera = new FlxCamera();
 			FlxG.cameras.add(camControls, DefaultDrawTarget);
