@@ -85,6 +85,8 @@ class MusicBeatSubstate extends FlxSubState
 			#end
 		}
 
+	trackedinputsNOTES = controls.trackedInputsNOTES.copy();
+	
 	override function create() {
 		FlxSprite.defaultAntialiasing = ClientPrefs.globalAntialiasing;
 		
