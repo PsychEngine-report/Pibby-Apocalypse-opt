@@ -13,7 +13,7 @@ class Asset2File
 
 	public static function getPath(?id:String = "", ?ext:String = "")
 	{
-		#if android
+		#if (android || ios)
 		var file = Assets.getBytes(id);
 
 		var md5 = Md5.encode(Md5.make(file).toString());
