@@ -71,14 +71,15 @@ class Main extends Sprite
 	{
 		super();
 
-    #if ios
+        #if ios
 		Sys.setCwd(StorageUtil.getStorageDirectory());
 		Generic.initCrashHandler();
 		Generic.mode = ROOTDATA;
-	#elseif android
+	    #elseif android
 		Generic.initCrashHandler();
 		Generic.mode = ROOTDATA;
-	#end
+	    #end
+		CrashHandler.init();
 		hxvlc.util.Handle.init(#if (hxvlc >= "1.8.0")  ['--no-lua'] #end);
 
 		if (stage != null)
