@@ -33,6 +33,7 @@ class MusicBeatState extends FlxUIState
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	private var controls(get, never):Controls;
+	public var trackedinputsNOTES:Array<FlxActionInput> = [];
 
 	public static var camBeat:FlxCamera;
 

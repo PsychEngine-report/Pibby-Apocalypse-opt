@@ -6,6 +6,8 @@ import flixel.math.FlxMath;
 import flixel.util.FlxStringUtil;
 import flixel.FlxG;
 import openfl.Assets;
+import openfl.system.System as OpenFlSystem;
+import lime.system.System as LimeSystem;
 #if (openfl >= "8.0.0")
 import openfl.utils.AssetType;
 #end
@@ -15,6 +17,15 @@ import cpp.vm.Gc;
 
 using StringTools;
 
+#if cpp
+#if windows
+@:cppFileCode('#include <windows.h>')
+#elseif (ios || mac)
+@:cppFileCode('#include <mach-o/arch.h>')
+#else
+@:headerInclude('sys/utsname.h')
+#end
+#end
 class FPSCounter extends TextField
 {
     public static var instance:FPSCounter;
@@ -47,7 +58,7 @@ class FPSCounter extends TextField
 		currentFPS = 0;
 		selectable = false;
 		mouseEnabled = false;
-		defaultTextFormat = new TextFormat(getFont(Paths.font("vcr.ttf")), 14, color);
+		defaultTextFormat = new TextFormat(getFont(Paths.font("vcr.ttf")), 10, color);
 		autoSize = LEFT;
 		multiline = true;
 		text = "FPS: ";
@@ -142,6 +153,10 @@ class FPSCounter extends TextField
 		if(Main.debug)
 		    text += ' (Update running at ${FlxMath.roundDecimal(ms, 2)}ms)';
 		
+		if (LimeSystem.platformName == LimeSystem.platformVersion || LimeSystem.platformVersion == null)
+			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end;
+		else
+			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end + ' - ${LimeSystem.platformVersion}';
 
 		lagging = false;
 
@@ -160,7 +175,8 @@ class FPSCounter extends TextField
 			peakMemory = curMemory;
 		text += 'RAM: ${CoolUtil.formatMemory(Std.int(curMemory))} (${CoolUtil.formatMemory(Std.int(peakMemory))} peak)';
 		//text += 'Used VRAM: ${CoolUtil.formatMemory(Std.int(FlxG.stage.context3D.totalGPUMemory))}'; // honestly not super useful
-		text += '\n';
+		//text += '\n';
+		text += os;
 		if(Main.debug){
             text += '\nDEBUG INFO:\n';
             text += '\nRUNTIME: ${FlxStringUtil.formatTime(currentTime / 1000)}';
@@ -176,6 +192,48 @@ class FPSCounter extends TextField
             text += 'ESTIMATED IMAGE RAM: ${CoolUtil.formatMemory(Std.int(Paths.expectedMemoryBytes))})\n'; // this wont work for VRAM since VRAM handles textures differently
         }
 	}
+
+	#if cpp
+	#if windows
+	@:functionCode('
+		SYSTEM_INFO osInfo;
+
+		GetSystemInfo(&osInfo);
+
+		switch(osInfo.wProcessorArchitecture)
+		{
+			case 9:
+				return ::String("x86_64");
+			case 5:
+				return ::String("ARM");
+			case 12:
+				return ::String("ARM64");
+			case 6:
+				return ::String("IA-64");
+			case 0:
+				return ::String("x86");
+			default:
+				return ::String("Unknown");
+		}
+	')
+	#elseif (ios || mac)
+	@:functionCode('
+		const NXArchInfo *archInfo = NXGetLocalArchInfo();
+    	return ::String(archInfo == NULL ? "Unknown" : archInfo->name);
+	')
+	#else
+	@:functionCode('
+		struct utsname osInfo{};
+		uname(&osInfo);
+		return ::String(osInfo.machine);
+	')
+	#end
+	@:noCompletion
+	private function getArch():String
+	{
+		return "Unknown";
+	}
+	#end
 
     
 
