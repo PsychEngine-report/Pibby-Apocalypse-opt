@@ -39,6 +39,7 @@ class FPSCounter extends TextField
 	public var realAlpha:Float = 1;
 	public var lagging:Bool = false;
 	public var forceUpdateText(default, set):Bool = false;
+	public var os:String = '';
 
 	@:noCompletion private var cacheCount:Int;
 	@:noCompletion private var currentTime:Float;
@@ -66,6 +67,11 @@ class FPSCounter extends TextField
 		cacheCount = 0;
 		currentTime = 0;
 		times = [];
+
+		if (LimeSystem.platformName == LimeSystem.platformVersion || LimeSystem.platformVersion == null)
+			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end;
+		else
+			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end + ' - ${LimeSystem.platformVersion}';
 
 		#if flash
 		addEventListener(Event.ENTER_FRAME, function(e)
@@ -152,11 +158,6 @@ class FPSCounter extends TextField
 		ms *= 1000;
 		if(Main.debug)
 		    text += ' (Update running at ${FlxMath.roundDecimal(ms, 2)}ms)';
-		
-		if (LimeSystem.platformName == LimeSystem.platformVersion || LimeSystem.platformVersion == null)
-			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end;
-		else
-			os = '\nOS: ${LimeSystem.platformName}' #if cpp + ' ${getArch() != 'Unknown' ? getArch() : ''}' #end + ' - ${LimeSystem.platformVersion}';
 
 		lagging = false;
 
