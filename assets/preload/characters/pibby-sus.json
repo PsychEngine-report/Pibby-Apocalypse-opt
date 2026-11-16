@@ -1,176 +1,176 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				-5,
 				0
 			],
-			"anim": "idle",
+			"loop": false,
 			"fps": 24,
-			"name": "Idle",
-			"indices": []
+			"anim": "idle",
+			"indices": [],
+			"name": "Idle"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				75,
 				13
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Right0",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Right0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-12,
 				-43
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Down0",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Down0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-18,
 				12
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Up0",
-			"indices": []
+			"anim": "singUP",
+			"indices": [],
+			"name": "Up0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-70,
 				2
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Left0",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Left0"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				7,
 				19
 			],
-			"anim": "singLEFTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "BF NOTE LEFT MISS",
-			"indices": []
+			"anim": "singLEFTmiss",
+			"indices": [],
+			"name": "BF NOTE LEFT MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-15,
 				-19
 			],
-			"anim": "singDOWNmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "BF NOTE DOWN MISS",
-			"indices": []
+			"anim": "singDOWNmiss",
+			"indices": [],
+			"name": "BF NOTE DOWN MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-46,
 				27
 			],
-			"anim": "singUPmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "BF NOTE UP MISS",
-			"indices": []
+			"anim": "singUPmiss",
+			"indices": [],
+			"name": "BF NOTE UP MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-44,
 				22
 			],
-			"anim": "singRIGHTmiss",
+			"loop": false,
 			"fps": 24,
-			"name": "BF NOTE RIGHT MISS",
-			"indices": []
+			"anim": "singRIGHTmiss",
+			"indices": [],
+			"name": "BF NOTE RIGHT MISS"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-3,
 				5
 			],
-			"anim": "hey",
+			"loop": false,
 			"fps": 24,
-			"name": "BF HEY",
-			"indices": []
+			"anim": "hey",
+			"indices": [],
+			"name": "BF HEY"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				14,
 				18
 			],
-			"anim": "hurt",
+			"loop": false,
 			"fps": 24,
-			"name": "BF hit",
-			"indices": []
+			"anim": "hurt",
+			"indices": [],
+			"name": "BF hit"
 		},
 		{
-			"loop": true,
 			"offsets": [
 				-4,
 				0
 			],
-			"anim": "scared",
+			"loop": true,
 			"fps": 24,
-			"name": "BF idle shaking",
-			"indices": []
+			"anim": "scared",
+			"indices": [],
+			"name": "BF idle shaking"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-10,
 				-16
 			],
-			"anim": "dodge",
+			"loop": false,
 			"fps": 24,
-			"name": "boyfriend dodge",
-			"indices": []
+			"anim": "dodge",
+			"indices": [],
+			"name": "boyfriend dodge"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				294,
 				267
 			],
-			"anim": "attack",
+			"loop": false,
 			"fps": 24,
-			"name": "boyfriend attack",
-			"indices": []
+			"anim": "attack",
+			"indices": [],
+			"name": "boyfriend attack"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-40,
 				-40
 			],
-			"anim": "pre-attack",
+			"loop": false,
 			"fps": 24,
-			"name": "bf pre attack",
-			"indices": []
+			"anim": "pre-attack",
+			"indices": [],
+			"name": "bf pre attack"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Pibby-tripulannt",
 	"position": [
-		50,
-		450
+		120,
+		510
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -180,9 +180,9 @@
 		255
 	],
 	"camera_position": [
-		0,
-		0
+		70,
+		-60
 	],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 2
 }

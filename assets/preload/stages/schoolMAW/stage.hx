@@ -45,6 +45,7 @@ function onCreate()
     background.setGraphicSize(Std.int(background.width * 1.3));
     background.antialiasing = ClientPrefs.globalAntialiasing;
     background.scrollFactor.set(1, 1);
+    background.scale.set(2.8, 2.8);
     background.updateHitbox();
 
     wall = new flixel.FlxSprite(-200, 200);
@@ -52,6 +53,7 @@ function onCreate()
     wall.setGraphicSize(Std.int(wall.width * 1.1));
     wall.antialiasing = ClientPrefs.globalAntialiasing;
     wall.scrollFactor.set(1, 1);
+    wall.scale.set(2.0, 2.0);
     wall.updateHitbox();
 
     ch1 = new flixel.FlxSprite(100, 150);
@@ -59,6 +61,7 @@ function onCreate()
     ch1.setGraphicSize(Std.int(ch1.width * 1));
     ch1.antialiasing = ClientPrefs.globalAntialiasing;
     ch1.scrollFactor.set(1, 1);
+    ch1.scale.set(2.0, 2.0);
     ch1.updateHitbox();
 
     ch2 = new flixel.FlxSprite(125, -20);
@@ -66,6 +69,7 @@ function onCreate()
     ch2.setGraphicSize(Std.int(ch2.width * 1));
     ch2.antialiasing = ClientPrefs.globalAntialiasing;
     ch2.scrollFactor.set(1, 1);
+    ch2.scale.set(2.0, 2.0);
     ch2.updateHitbox();
 
     ch3 = new flixel.FlxSprite(100, 150);
@@ -74,7 +78,7 @@ function onCreate()
     ch3.antialiasing = ClientPrefs.globalAntialiasing;
     ch3.scrollFactor.set(1, 1);
     ch3.updateHitbox();
-    ch3.scale.x += 0.2; // just in case....
+    ch3.scale.x += 0.8; // just in case....
 
     if (!ClientPrefs.lowQuality)
     {
@@ -122,6 +126,7 @@ function onCreate()
         light.setGraphicSize(Std.int(light.width * 1));
         light.antialiasing = ClientPrefs.globalAntialiasing;
         light.scrollFactor.set(1, 1);
+        light.scale.set(2.8, 2.8);
         light.updateHitbox();
 
         vignette = new flixel.FlxSprite(0, 0);
@@ -129,6 +134,7 @@ function onCreate()
         vignette.setGraphicSize(Std.int(vignette.width * 1.3));
         vignette.antialiasing = ClientPrefs.globalAntialiasing;
         vignette.scrollFactor.set(1, 1);
+        vignette.scale.set(2.8, 2.8);
         vignette.updateHitbox();
 
         vignette2 = new flixel.FlxSprite(0, 0);
@@ -136,6 +142,7 @@ function onCreate()
         vignette2.setGraphicSize(Std.int(vignette2.width * 1.3));
         vignette2.antialiasing = ClientPrefs.globalAntialiasing;
         vignette2.scrollFactor.set(1, 1);
+        vignette2.scale.set(2.8, 2.8);
         vignette2.updateHitbox();
     }
 
@@ -146,6 +153,7 @@ function onCreate()
     void.setGraphicSize(Std.int(void.width * 1.7));
     void.antialiasing = ClientPrefs.globalAntialiasing;
     void.scrollFactor.set(0.6, 0.6);
+    void.scale.set(4.8, 4.8);
     void.updateHitbox();
     add(void);
 
@@ -394,7 +402,7 @@ function onStepHit(curStep:Int)
                 PlayState.dad.x = 900;
                 PlayState.dad.y = 740;
                 PlayState.boyfriend.x = 1570;
-                PlayState.boyfriend.y = 800;
+                PlayState.boyfriend.y = 1000;
                 PlayState.boyfriend.color = charColors[0];
                 PlayState.dad.color = charColors[0];
                 PlayState.gf.color = charColors[0];

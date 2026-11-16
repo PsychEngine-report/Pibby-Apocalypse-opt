@@ -15,13 +15,14 @@ function onCreate()
     void.setGraphicSize(Std.int(void.width * 1.7));
     void.antialiasing = ClientPrefs.globalAntialiasing;
     void.scrollFactor.set(0.4, 0.4);
+    void.scale.set(4.8, 4.8);
     void.updateHitbox();
 
     glitch = new flixel.FlxSprite();
     glitch.alpha = 0.0001;
     glitch.x = 1000;
     glitch.y = 800;
-    glitch.scale.set(5, 5);
+    glitch.scale.set(10, 10);
     glitch.frames = retrieveAsset('images/gumballglitchbg', 'atlas');
     glitch.animation.addByPrefix('spin', 'spin', 15, false);
 
@@ -100,7 +101,7 @@ function onCreate()
 
 function onCreatePost()
 {
-    PlayState.boyfriend.origin.set(0, 200);
+    PlayState.boyfriend.origin.set(100, 100);
     PlayState.gf.origin.set(0, 200);
 }
 

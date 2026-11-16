@@ -11,14 +11,14 @@ function onCreate()
 
     bg = new flixel.FlxSprite(-800, -800);
     bg.loadGraphic(retrieveAsset('images/back', 'image'));
-    bg.scale.set(1.8, 1.8);
+    bg.scale.set(9.0, 9.0);
     bg.antialiasing = ClientPrefs.globalAntialiasing;
     bg.updateHitbox();
     bg.alpha = 0.0001;
 
     treehouse = new flixel.FlxSprite(-800, -800);
     treehouse.loadGraphic(retrieveAsset('images/tree', 'image'));
-    treehouse.scale.set(1.8, 1.8);
+    treehouse.scale.set(3.6, 3.6);
     treehouse.antialiasing = ClientPrefs.globalAntialiasing;
     treehouse.updateHitbox();
     treehouse.alpha = 0.0001;
@@ -28,8 +28,9 @@ function onCreate()
         thunder = new flixel.FlxSprite();
         thunder.x = -550;
         thunder.y = -800;
-        thunder.scale.set(1.2, 1,2);
+        thunder.scale.set(4.8, 4,8);
         thunder.frames = retrieveAsset('images/Lighting', 'atlas');
+        thunder.updateHitbox();
         thunder.animation.addByPrefix('thunder', 'LIGHTNING', 24, false);
         thunder.alpha = 0.0001;
         thunder.scrollFactor.set(1,1);//I'm not offsetting the thunder one of you dumbasses set the thunder scroll 0 (if you want thunder do it) --Tormented

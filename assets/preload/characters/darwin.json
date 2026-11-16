@@ -1,102 +1,101 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				83,
 				-5
 			],
-			"anim": "singLEFT",
+			"loop": false,
 			"fps": 24,
-			"name": "Darwin left",
-			"indices": []
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "Darwin left"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-35,
 				-17
 			],
-			"anim": "singRIGHT",
+			"loop": false,
 			"fps": 24,
-			"name": "Darwin right",
-			"indices": []
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "Darwin right"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-14,
 				-67
 			],
-			"anim": "singDOWN",
+			"loop": false,
 			"fps": 24,
-			"name": "Darwin down",
-			"indices": []
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "Darwin down"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-28,
 				74
 			],
-			"anim": "singUP",
+			"loop": false,
 			"fps": 24,
-			"name": "Darwin up",
+			"anim": "singUP",
+			"indices": [],
+			"name": "Darwin up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-32
+			],
+			"anim": "singDOWNmiss",
+			"fps": 24,
+			"name": "Down-miss0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				82,
+				2
+			],
+			"anim": "singLEFTmiss",
+			"fps": 24,
+			"name": "Left-Miss0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-34,
+				90
+			],
+			"anim": "singUPmiss",
+			"fps": 24,
+			"name": "Up-miss0",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-30,
+				10
+			],
+			"anim": "singRIGHTmiss",
+			"fps": 24,
+			"name": "Right-miss0",
 			"indices": []
 		},
 		{
 			"offsets": [
 				0,
-				-32
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "Down-miss0"
-		},
-		{
-			"offsets": [
-				82,
-				2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "Left-Miss0"
-		},
-		{
-			"offsets": [
-				-34,
-				90
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUPmiss",
-			"indices": [],
-			"name": "Up-miss0"
-		},
-		{
-			"offsets": [
-				-30,
-				10
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "Right-miss0"
-		},
-		{
-			"loop": true,
-			"offsets": [
-				0,
 				0
 			],
-			"anim": "idle",
+			"loop": true,
 			"fps": 24,
-			"name": "Darwin Idle",
+			"anim": "idle",
 			"indices": [
 				1,
 				2,
@@ -110,13 +109,18 @@
 				10,
 				11,
 				12
-			]
+			],
+			"name": "Darwin Idle"
 		},
 		{
+			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
+			"anim": "idle-blink",
+			"fps": 24,
+			"name": "Darwin Idle",
 			"indices": [
 				12,
 				13,
@@ -130,18 +134,14 @@
 				21,
 				22,
 				22
-			],
-			"fps": 24,
-			"anim": "idle-blink",
-			"loop": false,
-			"name": "Darwin Idle"
+			]
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Darwin",
 	"position": [
-		100,
-		450
+		160,
+		510
 	],
 	"healthicon": "darwin",
 	"flip_x": true,
@@ -151,9 +151,9 @@
 		75
 	],
 	"camera_position": [
-		160,
-		-70
+		230,
+		-130
 	],
 	"sing_duration": 4,
-	"scale": 1.5
+	"scale": 3
 }

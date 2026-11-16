@@ -1,55 +1,55 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				68,
 				113
 			],
-			"anim": "1",
+			"loop": false,
 			"fps": 24,
-			"name": "BF 1",
-			"indices": []
+			"anim": "1",
+			"indices": [],
+			"name": "BF 1"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				68,
 				-15
 			],
-			"anim": "Go",
+			"loop": false,
 			"fps": 24,
-			"name": "BF Go",
-			"indices": []
+			"anim": "Go",
+			"indices": [],
+			"name": "BF Go"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				12,
 				83
 			],
-			"anim": "3",
+			"loop": false,
 			"fps": 24,
-			"name": "BF 3",
-			"indices": []
+			"anim": "3",
+			"indices": [],
+			"name": "BF 3"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-1,
 				-2
 			],
-			"anim": "2",
+			"loop": false,
 			"fps": 24,
-			"name": "BF 2",
-			"indices": []
+			"anim": "2",
+			"indices": [],
+			"name": "BF 2"
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/BF_Intro",
 	"position": [
-		152,
-		319
+		302,
+		469
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -59,9 +59,9 @@
 		209
 	],
 	"camera_position": [
-		40,
-		0
+		190,
+		-150
 	],
 	"sing_duration": 4,
-	"scale": 0.979
+	"scale": 1.958
 }

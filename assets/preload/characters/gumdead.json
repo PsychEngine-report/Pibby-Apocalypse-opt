@@ -1,44 +1,44 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				382,
 				398
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "firstDeath",
-			"indices": [],
-			"name": "death gum"
+			"fps": 24,
+			"name": "death gum",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				69,
 				309
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "deathLoop",
-			"indices": [],
-			"name": "retry loop"
+			"fps": 24,
+			"name": "retry loop",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				69,
 				308
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "deathConfirm",
-			"indices": [],
-			"name": "retry0"
+			"fps": 24,
+			"name": "retry0",
+			"indices": []
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/gumdeath",
 	"position": [
-		0,
-		350
+		340,
+		570
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -48,9 +48,9 @@
 		209
 	],
 	"camera_position": [
-		450,
-		-130
+		790,
+		-350
 	],
 	"sing_duration": 4,
-	"scale": 0.999999999999999
+	"scale": 2
 }

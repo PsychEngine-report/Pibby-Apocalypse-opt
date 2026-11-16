@@ -1,48 +1,48 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				7,
 				-160
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "finn idle"
-		},
-		{
-			"loop": false,
-			"offsets": [
-				8,
-				-116
-			],
-			"anim": "laugh",
 			"fps": 24,
-			"name": "finn laugh",
+			"name": "finn idle",
 			"indices": []
 		},
 		{
 			"offsets": [
+				8,
+				-116
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "laugh",
+			"indices": [],
+			"name": "finn laugh"
+		},
+		{
+			"loop": true,
+			"offsets": [
 				7,
 				-160
 			],
-			"loop": true,
-			"fps": 24,
 			"anim": "idle-loop",
+			"fps": 24,
+			"name": "finn idle",
 			"indices": [
 				12,
 				13,
 				14
-			],
-			"name": "finn idle"
+			]
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/finnfalse",
 	"position": [
-		-150,
-		30
+		50,
+		170
 	],
 	"healthicon": "finn",
 	"flip_x": false,
@@ -52,9 +52,9 @@
 		0
 	],
 	"camera_position": [
-		140,
-		210
+		-60,
+		60
 	],
 	"sing_duration": 3.8,
-	"scale": 1
+	"scale": 2
 }

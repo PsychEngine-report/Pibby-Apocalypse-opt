@@ -1,47 +1,47 @@
 {
 	"animations": [
 		{
-			"loop": false,
 			"offsets": [
 				0,
 				0
 			],
-			"anim": "firstDeath",
+			"loop": false,
 			"fps": 24,
-			"name": "death",
-			"indices": []
+			"anim": "firstDeath",
+			"indices": [],
+			"name": "death"
 		},
 		{
-			"loop": false,
 			"offsets": [
 				-2,
 				70
 			],
-			"anim": "deathConfirm",
+			"loop": false,
 			"fps": 24,
-			"name": "confirm",
-			"indices": []
+			"anim": "deathConfirm",
+			"indices": [],
+			"name": "confirm"
 		},
 		{
+			"loop": true,
 			"offsets": [
 				0,
 				0
 			],
+			"anim": "deathLoop",
+			"fps": 24,
+			"name": "death",
 			"indices": [
 				122,
 				123
-			],
-			"fps": 24,
-			"anim": "deathLoop",
-			"loop": true,
-			"name": "death"
+			]
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Pibby_Death",
 	"position": [
-		10,
-		340
+		120,
+		480
 	],
 	"healthicon": "bf",
 	"flip_x": true,
@@ -51,9 +51,9 @@
 		209
 	],
 	"camera_position": [
-		0,
-		0
+		110,
+		-140
 	],
 	"sing_duration": 4,
-	"scale": 1
+	"scale": 2
 }

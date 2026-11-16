@@ -24,6 +24,7 @@ function onCreate()
     background.setGraphicSize(Std.int(background.width * 1.3));
     background.antialiasing = ClientPrefs.globalAntialiasing;
     background.scrollFactor.set(1, 1);
+    background.scale.set(2.8, 2.8);
     background.updateHitbox();
 
     pixel = new flixel.addons.display.FlxRuntimeShader(RuntimeShaders.pixel, null, 100);
@@ -75,6 +76,7 @@ function onCreate()
         wall.setGraphicSize(Std.int(wall.width * 1.1));
         wall.antialiasing = ClientPrefs.globalAntialiasing;
         wall.scrollFactor.set(1, 1);
+        wall.scale.set(2, 2);
         wall.updateHitbox();
 
         light = new flixel.FlxSprite(-500, 50);
@@ -82,6 +84,7 @@ function onCreate()
         light.setGraphicSize(Std.int(light.width * 1));
         light.antialiasing = ClientPrefs.globalAntialiasing;
         light.scrollFactor.set(1, 1);
+        light.scale.set(2.8, 2.8);
         light.updateHitbox();
 
         vignette = new flixel.FlxSprite(0, 0);
@@ -89,6 +92,7 @@ function onCreate()
         vignette.setGraphicSize(Std.int(vignette.width * 1.3));
         vignette.antialiasing = ClientPrefs.globalAntialiasing;
         vignette.scrollFactor.set(1, 1);
+        vignette.scale.set(2.8, 2.8);
         vignette.updateHitbox();
 
         vignette2 = new flixel.FlxSprite(0, 0);
@@ -96,6 +100,7 @@ function onCreate()
         vignette2.setGraphicSize(Std.int(vignette2.width * 1.3));
         vignette2.antialiasing = ClientPrefs.globalAntialiasing;
         vignette2.scrollFactor.set(1, 1);
+        vignette2.scale.set(2.8, 2.8);
         vignette2.updateHitbox();
     }
 
@@ -160,7 +165,7 @@ function onUpdate()
         else
                 {
                     PlayState.dad.x = 300;
-                    PlayState.dad.y = 550;
+                    PlayState.dad.y = 650;
                 }
     }
 

@@ -1,120 +1,124 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				33,
 				-6
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "cmon",
-			"indices": [],
-			"name": "Cmon"
+			"fps": 24,
+			"name": "Cmon",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				48,
 				-227
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWNmiss",
-			"indices": [],
-			"name": "MissD"
+			"fps": 24,
+			"name": "MissD",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-153,
 				56
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHTmiss",
-			"indices": [],
-			"name": "MissR"
+			"fps": 24,
+			"name": "MissR",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-138,
 				102
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUPmiss",
-			"indices": [],
-			"name": "MissU"
+			"fps": 24,
+			"name": "MissU",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				68,
 				33
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFTmiss",
-			"indices": [],
-			"name": "MissL"
+			"fps": 24,
+			"name": "MissL",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-133,
 				-147
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "idle",
-			"indices": [],
-			"name": "Idle alt"
+			"fps": 24,
+			"name": "Idle alt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				68,
 				-100
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singLEFT",
-			"indices": [],
-			"name": "Left Alt"
+			"fps": 24,
+			"name": "Left Alt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				103,
 				-82
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singDOWN",
-			"indices": [],
-			"name": "Down Alt"
+			"fps": 24,
+			"name": "Down Alt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				43,
 				-112
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singUP",
-			"indices": [],
-			"name": "Up Alt"
+			"fps": 24,
+			"name": "Up Alt",
+			"indices": []
 		},
 		{
+			"loop": false,
 			"offsets": [
 				-79,
 				-173
 			],
-			"loop": false,
-			"fps": 24,
 			"anim": "singRIGHT",
-			"indices": [],
-			"name": "Right Alt"
+			"fps": 24,
+			"name": "Right Alt",
+			"indices": []
 		},
 		{
+			"loop": true,
 			"offsets": [
 				-260,
 				-180
 			],
+			"anim": "idle-alt",
+			"fps": 24,
+			"name": "Idle",
 			"indices": [
 				1,
 				2,
@@ -129,18 +133,14 @@
 				11,
 				12,
 				13
-			],
-			"fps": 24,
-			"anim": "idle-alt",
-			"loop": true,
-			"name": "Idle"
+			]
 		}
 	],
 	"no_antialiasing": false,
 	"image": "characters/Pibby_Angy",
 	"position": [
-		-150,
-		260
+		-20,
+		380
 	],
 	"healthicon": "pibby",
 	"flip_x": false,
@@ -150,9 +150,9 @@
 		170
 	],
 	"camera_position": [
-		-420,
-		-20
+		-550,
+		-140
 	],
 	"sing_duration": 5,
-	"scale": 1.5
+	"scale": 3
 }

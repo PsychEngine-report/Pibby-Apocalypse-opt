@@ -30,6 +30,7 @@ function onCreate()
     void.setGraphicSize(Std.int(void.width * 1.7));
     void.antialiasing = ClientPrefs.globalAntialiasing;
     void.scrollFactor.set(0.6, 0.6);
+    void.scale.set(4.8, 4.8);
     void.updateHitbox();
     void.color = 0xdbdbdb;
 
@@ -45,7 +46,7 @@ function onCreate()
    {
         chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh = new flixel.FlxSprite(-500, -300);
         chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.loadGraphic(retrieveAsset('images/void3/2b', 'image'));
-        chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.scale.set(1.2, 1.2);
+        chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.scale.set(2.4, 2.4);
         chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.antialiasing = ClientPrefs.globalAntialiasing;
         chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.scrollFactor.set(0.6, 0.6);
         chatImLazyToDoMathematicalShitSoHeresACopyOfScaryGlitchAhh.updateHitbox();
@@ -107,7 +108,7 @@ function onCreate()
     {
         scaryGlitchAhh = new flixel.FlxSprite(0, -200);
         scaryGlitchAhh.loadGraphic(retrieveAsset('images/void3/2b', 'image'));
-        scaryGlitchAhh.scale.set(1.2, 1.2);
+        scaryGlitchAhh.scale.set(2.4, 2.4);
         scaryGlitchAhh.antialiasing = ClientPrefs.globalAntialiasing;
         scaryGlitchAhh.scrollFactor.set(0.6, 0.6);
         scaryGlitchAhh.updateHitbox();
@@ -116,7 +117,7 @@ function onCreate()
 
         moreGlitchWaaaButBehindTheRock = new flixel.FlxSprite(0, -200);
         moreGlitchWaaaButBehindTheRock.loadGraphic(retrieveAsset('images/void3/2b', 'image'));
-        moreGlitchWaaaButBehindTheRock.scale.set(1.2, 1.2);
+        moreGlitchWaaaButBehindTheRock.scale.set(2.4, 2.4);
         moreGlitchWaaaButBehindTheRock.antialiasing = ClientPrefs.globalAntialiasing;
         moreGlitchWaaaButBehindTheRock.scrollFactor.set(0.6, 0.6);
         moreGlitchWaaaButBehindTheRock.updateHitbox();
@@ -134,7 +135,7 @@ function onCreate()
 
     rockb = new flixel.FlxSprite(0, -200);
     rockb.loadGraphic(retrieveAsset('images/void3/5b', 'image'));
-    rockb.scale.set(1.2, 1.2);
+    rockb.scale.set(2.4, 2.4);
     rockb.antialiasing = ClientPrefs.globalAntialiasing;
     rockb.scrollFactor.set(1, 1);
     rockb.updateHitbox();
@@ -167,7 +168,7 @@ function onCreate()
 
         wtfb = new flixel.FlxSprite(0, -200);
         wtfb.loadGraphic(retrieveAsset('images/void3/6', 'image'));
-        wtfb.scale.set(1.2, 1.2);
+        wtfb.scale.set(2.4, 2.4);
         wtfb.antialiasing = ClientPrefs.globalAntialiasing;
         wtfb.scrollFactor.set(1, 1);
         wtfb.updateHitbox();
@@ -175,7 +176,7 @@ function onCreate()
 
         moreGlitchWaaa = new flixel.FlxSprite(0, 210);
         moreGlitchWaaa.loadGraphic(retrieveAsset('images/void3/2b', 'image'));
-        moreGlitchWaaa.scale.set(1.2, 1.2);
+        moreGlitchWaaa.scale.set(2.4, 2.4);
         moreGlitchWaaa.antialiasing = ClientPrefs.globalAntialiasing;
         moreGlitchWaaa.scrollFactor.set(1.1, 1.1);
         moreGlitchWaaa.updateHitbox();
