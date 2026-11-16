@@ -28,7 +28,7 @@ class MusicBeatSubstate extends FlxSubState
 	private var curDecStep:Float = 0;
 	private var curDecBeat:Float = 0;
 	private var controls(get, never):Controls;
-	public var trackedinputsNOTES:Array<FlxActionInput> = [];
+	//public var trackedinputsNOTES:Array<FlxActionInput> = [];
 
 	inline function get_controls():Controls
 		return PlayerSettings.player1.controls;
@@ -48,7 +48,7 @@ class MusicBeatSubstate extends FlxSubState
 			controls.setVirtualPadUI(virtualPad, DPad, Action);
 			trackedInputsVirtualPad = controls.trackedInputsUI;
 			controls.trackedInputsUI = [];
-		    trackedinputsNOTES = controls.trackedInputsNOTES.copy();
+		    //trackedinputsNOTES = controls.trackedInputsNOTES.copy();
 		}
 
 		public function removeVirtualPad()
