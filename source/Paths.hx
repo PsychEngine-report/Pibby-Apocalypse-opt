@@ -187,8 +187,16 @@ class Paths
 
 	static public function video(key:String)
 	{
-		return #if 'assets/videos/$key.$VIDEO_EXT';
+		return 'assets/videos/$key.$VIDEO_EXT';
 	}
+
+
+	/* og thing
+	static public function video(key:String)
+	{
+		return Generic.returnPath + 'assets/videos/$key.$VIDEO_EXT';
+	}
+	*/
 
 	static public function truevideo(key:String)
 	{
