@@ -72,13 +72,13 @@ class Main extends Sprite
 		super();
 
         #if ios
-		Sys.setCwd(StorageUtil.getStorageDirectory());
-		//Generic.initCrashHandler();
-		//Generic.mode = INTERNAL;
-	    #elseif android
 		//Sys.setCwd(StorageUtil.getStorageDirectory());
 		//Generic.initCrashHandler();
 		Generic.mode = ROOTDATA;
+	    #elseif android
+		//Sys.setCwd(StorageUtil.getStorageDirectory());
+		//Generic.initCrashHandler();
+		Generic.mode = INTERNAL;
 	    #end
 		CrashHandler.init();
 
