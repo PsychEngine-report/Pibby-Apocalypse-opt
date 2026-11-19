@@ -57,7 +57,7 @@ class MusicBeatState extends FlxUIState
 			controls.setVirtualPadUI(virtualPad, DPad, Action);
 			trackedInputsVirtualPad = controls.trackedInputsUI;
 			controls.trackedInputsUI = [];
-			controls.trackedInputsNOTES = controls.trackedInputsNOTES.copy();
+			//controls.trackedInputsNOTES = controls.trackedInputsNOTES.copy();
 		}
 
 		public function removeVirtualPad()
@@ -86,6 +86,8 @@ class MusicBeatState extends FlxUIState
 				controls.setHitBox(mobileControls.hitbox);
 				case 'Keyboard': // do nothing
 			}
+
+			controls.trackedInputsNOTES = controls.trackedInputsNOTES.copy();
 
 			var camControls:FlxCamera = new FlxCamera();
 			FlxG.cameras.add(camControls, DefaultDrawTarget);
