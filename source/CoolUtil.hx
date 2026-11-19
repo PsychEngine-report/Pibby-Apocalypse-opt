@@ -241,7 +241,7 @@ class CoolUtil
 		#else*/
 		//FlxG.stage.window.alert(message, title);
 		Sys.println(message);
-		Application.current.window.alert(errMsg, title);
+		Application.current.window.alert(message, title);
 		//#end
 	}
 
