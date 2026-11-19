@@ -80,7 +80,7 @@ import sys.FileSystem;
 import sys.io.File;
 #end
 
-#if VIDEO_ALLOWED
+#if VIDEOS_ALLOWED
 import hxvlc.flixel.FlxVideoSprite;
 import objects.VideoSprite;
 #end
