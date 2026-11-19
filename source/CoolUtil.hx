@@ -13,6 +13,7 @@ import lime.utils.AssetLibrary;
 import lime.utils.AssetManifest;
 import flixel.system.FlxSound;
 import openfl.utils.Assets;
+import lime.app.Application;
 
 using StringTools;
 
