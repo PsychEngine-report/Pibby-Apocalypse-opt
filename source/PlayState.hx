@@ -81,7 +81,8 @@ import sys.io.File;
 #end
 
 #if VIDEO_ALLOWED
-import hxvlc.flixel.FlxVideoSprite as VideoSprite;
+import hxvlc.flixel.FlxVideoSprite;
+import objects.VideoSprite;
 #end
 
 class PlayState extends MusicBeatState
@@ -91,8 +92,13 @@ class PlayState extends MusicBeatState
 	var channelBG:FlxSprite;
 	var channelTxt:FlxText;
 
-	public var midSongVideo:#if VIDEOS_ALLOWED VideoSprite #else Dynamic #end;
-	public var cheatingVideo:#if VIDEOS_ALLOWED VideoSprite #else Dynamic #end;
+	#if VIDEOS_ALLOWED
+	public var midSongVideo:VideoSprite;
+	public var cheatingVideo:FlxVideoSprite;
+	#else
+	public var midSongVideo:Dynamic;
+	public var cheatingVideo:Dynamic;
+	#end
 
 	public static var STRUM_X = 42;
 	public static var STRUM_X_MIDDLESCROLL = -278;
@@ -437,7 +443,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		Paths.clearStoredMemory();
+		Paths.clearStoredMemory();#if VIDEOS_ALLOWED
 
 		// for lua
 		instance = this;
@@ -1312,10 +1318,10 @@ class PlayState extends MusicBeatState
 				case 'Forgotten World':
 					addCharacterToList('darwinfw', 0);
 					#if VIDEOS_ALLOWED
-					midSongVideo.bitmap.playVideo(Paths.video('forgottenscene'));
-					midSongVideo.bitmap.finishCallback = null;
-					midSongVideo.bitmap.stop();
+					midSongVideo.videoSprite.stop();
+					midSongVideo.finishCallback = null;
 					midSongVideo.cameras = [camHUD];
+					midSongVideo.videoSprite.cameras = [camHUD];
 					#end
 					GameOverSubstate.characterName = 'darwindeath';
 					GameOverSubstate.deathSoundName = 'glitchhit';
@@ -1696,56 +1702,45 @@ class PlayState extends MusicBeatState
 	}
 
 	public function youCheatedRah()
-{
-    #if VIDEOS_ALLOWED
-    inCutscene = true;
-
-    var filepath:String = Paths.video('Cheating_is_a_sin');
-    #if sys
-    if(!sys.FileSystem.exists(filepath))
-    #else
-    if(!openfl.utils.Assets.exists(filepath))
-    #end
-    {
-        FlxG.log.warn('Couldnt find video file!!');
-        MusicBeatState.switchState(new FreeplayState());
-        return;
-    }
-
-    cheatingVideo.camera = camOther;
-    
-    // FIX: VideoSprite usually uses 'load' or 'play' with these arguments
-    cheatingVideo.load(filepath, [
-        ":input-repeat=0", 
-        ":no-audio" // Add options if your library requires them, otherwise just (filepath)
-    ]);
-    
-    // FIX: skip is usually a property of the sprite itself, not the bitmap
-    cheatingVideo.canSkip = false; 
-    
-    cheatingVideo.scale.set(0.705, 0.705);
-    cheatingVideo.x -= 300;
-    cheatingVideo.y -= 170;
-
-    // FIX: Changed openingCallback to originCallback
-    Reflect.setField(cheatingVideo, "originCallback", function() {
-    persistentUpdate = false;
-    camOther.fade(0x000000, 3, true);
-	});
-
-    cheatingVideo.finishCallback = function()
-    {
-        persistentUpdate = true;
-        lime.app.Application.current.window.alert('Our game, our rules.\n- Finn');
-        Sys.exit(0);
-    }
-    
-    cheatingVideo.play(); // Make sure it actually starts
-    #else
-    FlxG.log.warn('Platform not supported!');
-    MusicBeatState.switchState(new FreeplayState());
-    #end
-}
+	{
+		#if VIDEOS_ALLOWED
+		inCutscene = true;
+		var filepath:String = Paths.video('Cheating_is_a_sin');
+		
+		#if sys
+		if(!sys.FileSystem.exists(filepath))
+		#else
+		if(!openfl.utils.Assets.exists(filepath))
+		#end
+		{
+			FlxG.log.warn('Couldnt find video file!!');
+			MusicBeatState.switchState(new FreeplayState());
+			return;
+		}
+		
+		cheatingVideo.cameras = [camOther];
+		cheatingVideo.load(filepath, [":input-repeat=0", ":no-audio"]);
+		
+		Reflect.setField(cheatingVideo, "originCallback", function() {
+			persistentUpdate = false;
+			camOther.fade(0x000000, 3, true);
+		});
+		
+		cheatingVideo.bitmap.onEndReached.add(function() {
+			persistentUpdate = true;
+			lime.app.Application.current.window.alert('Our game, our rules.\n- Finn');
+			Sys.exit(0);
+		});
+		
+		cheatingVideo.scale.set(0.705, 0.705);
+		cheatingVideo.x -= 300;
+		cheatingVideo.y -= 170;
+		cheatingVideo.play();
+		#else
+		FlxG.log.warn('Platform not supported!');
+		MusicBeatState.switchState(new FreeplayState());
+		#end
+	}
 	
 	public var videoCutscene:VideoSprite = null;
 	public function startVideo(name:String, forMidSong:Bool = false, canSkip:Bool = true, loop:Bool = false, playOnLoad:Bool = true)
@@ -2306,7 +2301,8 @@ class PlayState extends MusicBeatState
 		FlxG.sound.list.add(new FlxSound().loadEmbedded(Paths.inst(PlayState.SONG.song)));
 
 		#if VIDEOS_ALLOWED
-		midSongVideo = new VideoSprite('', true, false, false);
+		midSongVideo = new VideoSprite(Paths.video('forgottenscene'), true, false, false);
+		midSongVideo.cameras = [camHUD];
 		add(midSongVideo);
 		#end
 
@@ -2314,7 +2310,8 @@ class PlayState extends MusicBeatState
 		add(notes);
 
 		#if VIDEOS_ALLOWED
-		cheatingVideo = new VideoSprite('', true, false, false);
+		cheatingVideo = new FlxVideoSprite();
+		cheatingVideo.cameras = [camOther];
 		add(cheatingVideo);
 		#end
 
@@ -5767,16 +5764,17 @@ class PlayState extends MusicBeatState
 							}
 						case 1180:
 							#if VIDEOS_ALLOWED
-							canPause = false; // due to the cool part been literally a video we prevent the player to pause on that part
-
-              pibbyHealthbar.alpha = 0;
-							midSongVideo.bitmap.canSkip = false;
-							midSongVideo.bitmap.playVideo(Paths.video('forgottenscene'));
-							midSongVideo.bitmap.finishCallback = () -> { 
+							canPause = false;
+							pibbyHealthbar.alpha = 0;
+							
+							midSongVideo.canSkip = false;
+							midSongVideo.finishCallback = () -> { 
 								canPause = true;
 								blackie.alpha = 0;
 								blackie.visible = false;
 							};
+							
+							midSongVideo.play();
 							#end
 						case 1190:
 							defaultCamZoom = 0.7;
