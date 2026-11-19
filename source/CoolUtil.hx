@@ -1,5 +1,11 @@
 package;
 
+#if android
+//import android.Hardware;
+import android.Permissions;
+import android.os.Environment;
+import android.widget.Toast;
+#end
 import flixel.FlxG;
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
