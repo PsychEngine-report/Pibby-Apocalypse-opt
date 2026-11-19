@@ -73,13 +73,15 @@ class Main extends Sprite
 
         #if ios
 		Sys.setCwd(StorageUtil.getStorageDirectory());
-		Generic.initCrashHandler();
-		Generic.mode = ROOTDATA;
+		//Generic.initCrashHandler();
+		//Generic.mode = INTERNAL;
 	    #elseif android
-		Generic.initCrashHandler();
+		//Sys.setCwd(StorageUtil.getStorageDirectory());
+		//Generic.initCrashHandler();
 		Generic.mode = ROOTDATA;
 	    #end
 		CrashHandler.init();
+
 		hxvlc.util.Handle.init(#if (hxvlc >= "1.8.0")  ['--no-lua'] #end);
 
 		if (stage != null)
@@ -111,9 +113,9 @@ class Main extends Sprite
 	private function setupGame():Void
 	{
 	  
-	#if mobile
-  //dude just wrote a full book of trash wtf
-
+		#if mobile
+		//dude just wrote a full book of trash wtf
+		/*
 		if (!FileSystem.exists(Generic.returnPath() + 'assets')) {
 			FileSystem.createDirectory(Generic.returnPath() + 'assets');
 		}
@@ -124,8 +126,9 @@ class Main extends Sprite
 
 		for (video in videos) {
 			Generic.copyContent(Paths.truevideo(video), Paths.truevideo(video));
-		}
-	#end
+		}*/
+		#end
+
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 

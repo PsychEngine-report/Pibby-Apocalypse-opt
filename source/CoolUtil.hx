@@ -239,7 +239,9 @@ class CoolUtil
 		/*#if android
 		AndroidTools.showAlertDialog(title, message, {name: "OK", func: null}, null);
 		#else*/
-		FlxG.stage.window.alert(message, title);
+		//FlxG.stage.window.alert(message, title);
+		Sys.println(message);
+		Application.current.window.alert(errMsg, title);
 		//#end
 	}
 

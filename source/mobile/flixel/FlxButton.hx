@@ -513,16 +513,16 @@ class FlxTypedButton<T:FlxSprite> extends FlxSprite implements IFlxInput
 	}
 
 	inline function get_justReleased():Bool
-		return input.justReleased;
+		return input != null ? input.justReleased : false;
 
 	inline function get_released():Bool
-		return input.released;
+		return input != null ? input.released : false;
 
 	inline function get_pressed():Bool
-		return input.pressed;
+		return input != null ? input.pressed : false;
 
 	inline function get_justPressed():Bool
-		return input.justPressed;
+		return input != null ? input.justPressed : false;
 }
 
 /** 

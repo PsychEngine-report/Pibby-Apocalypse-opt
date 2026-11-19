@@ -119,7 +119,8 @@ class CrashHandler
 
         CoolUtil.showPopUp(log.join('\n'), "Critical Error!");
         #if DISCORD_ALLOWED DiscordClient.shutdown(); #end
-        lime.system.System.exit(1);
+        MusicBeatState.switchState(new MainMenuState());
+        //lime.system.System.exit(1);
     }
     #end
 

@@ -2830,8 +2830,13 @@ class PlayState extends MusicBeatState
 			botplaySine += 180 * elapsed;
 			botplayTxt.alpha = 1 - Math.sin((Math.PI * botplaySine) / 180);
 		}
-
-		if (controls.PAUSE #if mobile || virtualPad.buttonX.justPressed #end && startedCountdown && canPause)
+		
+		var mobilePause = false;
+		#if mobile
+		mobilePause = virtualPad != null && virtualPad.buttonX != null && virtualPad.buttonX.justPressed;
+		#end
+		
+		if ((controls.PAUSE || mobilePause) && startedCountdown && canPause)
 		{
             for (hScript in allScripts) {
 			    hScript.onPause();
@@ -3846,7 +3851,7 @@ class PlayState extends MusicBeatState
 	public function endSong():Void
 	{
 	  #if mobile
-	  mobileControls.visible = false;
+	  if (mobileControls != null) mobileControls.visible = false;
 	  #end
 		//Should kill you if you tried to cheat
 		if(!startingSong) {

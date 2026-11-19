@@ -20,10 +20,14 @@ class StorageUtil
     public static final rootDir:String = LimeSystem.applicationStorageDirectory;
 
     public static function getStorageDirectory():String
-    {
-        // iOS apps must use the documentsDirectory for persistent user data
-        return LimeSystem.documentsDirectory;
-    }
+	return 
+    #if android 
+                haxe.io.Path.addTrailingSlash(AndroidContext.getExternalFilesDir()) 
+                #elseif ios 
+                lime.system.System.documentsDirectory 
+                #else 
+                Sys.getCwd() 
+    #end;
 
     public static function createDirectories(directory:String):Void
     {
