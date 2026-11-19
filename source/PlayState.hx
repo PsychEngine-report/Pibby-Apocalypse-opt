@@ -443,7 +443,7 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
-		Paths.clearStoredMemory();#if VIDEOS_ALLOWED
+		Paths.clearStoredMemory();
 
 		// for lua
 		instance = this;
