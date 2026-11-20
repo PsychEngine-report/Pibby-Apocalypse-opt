@@ -188,6 +188,11 @@
 	<haxeflag name="--macro" value="allowPackage('flash')" />
 	<haxeflag name="--macro" value="include('my.pack')" />
 
+	<config:android gradle-version="7.5" />
+	<config:android gradle-plugin="7.4.2" />
+	<config:android target-sdk-version="29" />
+	<config:android compile-sdk-version="29" />
+
 	<haxedef name="SHARE_MOBILE_FILES" if="mobile" />
 
 	
