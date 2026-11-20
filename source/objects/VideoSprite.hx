@@ -19,6 +19,8 @@ class VideoSprite extends FlxSpriteGroup {
 	public var cover:FlxSprite;
 	public var canSkip(default, set):Bool = false;
 	public var controls(get, never):Controls;
+	inline function get_controls():Controls
+	return PlayerSettings.player1.controls;
 	public var rate(get, set):Float;
 	
 
