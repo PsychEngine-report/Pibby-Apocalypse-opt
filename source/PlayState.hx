@@ -1761,13 +1761,12 @@ class PlayState extends MusicBeatState
 
 		if (foundFile)
 		{
-    // FIX: Passing the 4 required arguments to the constructor
-    videoCutscene = new VideoSprite(fileName, forMidSong, canSkip, loop);
-    
-    // FIX: Accessing bitmap safely
-    if(forMidSong && videoCutscene.bitmap != null) 
-        videoCutscene.bitmap.rate = playbackRate;
-			// Finish callback
+			videoCutscene = new VideoSprite(fileName, forMidSong, canSkip, loop)
+			if (forMidSong && videoCutscene.videoSprite != null && videoCutscene.videoSprite.bitmap != null) 
+			{
+				videoCutscene.videoSprite.bitmap.rate = playbackRate;
+			}
+
 			if (!forMidSong)
 			{
 				function onVideoEnd()
@@ -1782,20 +1781,18 @@ class PlayState extends MusicBeatState
 					inCutscene = false;
 					startAndEnd();
 				}
+				
 				videoCutscene.finishCallback = onVideoEnd;
-				videoCutscene.finishCallback = onVideoEnd;
-        
-        // Check if your VideoSprite version uses 'onSkip' or 'skipCallback'
-        try { videoCutscene.onSkip = onVideoEnd; } catch(e:Dynamic) {}
-    	}
-    
-    	if (GameOverSubstate.instance != null && isDead) 
-        	GameOverSubstate.instance.add(videoCutscene);
-    	else 
-        	add(videoCutscene);
+				try { videoCutscene.canSkip = onVideoEnd; } catch(e:Dynamic) {}
+			}
+		
+			if (GameOverSubstate.instance != null && isDead) 
+				GameOverSubstate.instance.add(videoCutscene);
+			else 
+				add(videoCutscene);
 
-    	videoCutscene.play();
-    	return videoCutscene;
+			videoCutscene.play();
+			return videoCutscene;
 		}
 		#if (LUA_ALLOWED || HSCRIPT_ALLOWED)
 		else addTextToDebug("Video not found: " + fileName, FlxColor.RED);
@@ -1807,7 +1804,7 @@ class PlayState extends MusicBeatState
 		startAndEnd();
 		#end
 		return null;
-	}	
+	}
 
 		function startAndEnd()
 	    {
