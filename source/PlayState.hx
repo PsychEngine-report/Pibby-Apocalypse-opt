@@ -1783,7 +1783,7 @@ class PlayState extends MusicBeatState
 				}
 				
 				videoCutscene.finishCallback = onVideoEnd;
-				try { videoCutscene.canSkip = onVideoEnd; } catch(e:Dynamic) {}
+				try { videoCutscene.onSkip = onVideoEnd; } catch(e:Dynamic) {}
 			}
 		
 			if (GameOverSubstate.instance != null && isDead) 
