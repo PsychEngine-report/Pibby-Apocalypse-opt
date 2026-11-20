@@ -19,6 +19,8 @@ class VideoSprite extends FlxSpriteGroup {
 	public var cover:FlxSprite;
 	public var canSkip(default, set):Bool = false;
 	public var controls(get, never):Controls;
+	public var rate(get, set):Float;
+	
 
 	private var videoName:String;
 
@@ -155,6 +157,17 @@ class VideoSprite extends FlxSpriteGroup {
 			skipSprite = null;
 		}
 		return canSkip;
+	}
+
+	function get_rate():Float {
+		return (videoSprite != null && videoSprite.bitmap != null) ? videoSprite.bitmap.rate : 1.0;
+	}
+	
+	function set_rate(Value:Float):Float {
+		if (videoSprite != null && videoSprite.bitmap != null) {
+			videoSprite.bitmap.rate = Value;
+		}
+		return Value;
 	}
 
 	function updateSkipAlpha()
